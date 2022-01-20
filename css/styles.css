@@ -118,8 +118,23 @@ img {
   letter-spacing: 0.02em;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.link.current::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color:var(--icon-accent-color);
+  border-radius: 2px;
+  bottom: 0;
+}
+.item {
+  position: relative;
+}
 .item:not(:last-child) {
   margin-right: 50px;
 }
@@ -138,6 +153,9 @@ img {
 .contact-img {
   fill: var(--icon-primary-color);
   margin-right: 10px;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-text:hover .contact-img,
@@ -161,6 +179,9 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-footer .footer-text:hover,
@@ -177,6 +198,7 @@ img {
   align-items: center;
   justify-content: center;
   margin-left: auto;
+  
 }
 
 .contact-nav .contact-text {
@@ -190,6 +212,9 @@ img {
   align-items: center;
   justify-content: center;
   margin-right: 30px;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-nav .contact-text:hover,
@@ -250,22 +275,46 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 5;
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 528px;
-  height: 581px;
+  min-width: 528px;
+  min-height: 581px;
   background-color: var(--background-color);
 }
-
+.button-close-img {
+  fill: var(--logo-second-color);
+}
+.button-close:hover .button-close-img,
+.button-close:focus .button-close-img{
+  fill: var(--icon-accent-color);
+}
+.button-close {
+  position: absolute;
+  cursor: pointer;
+  top: 8px;
+  right: 8px;
+  background: var(--background-color);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
 /* Section */
+
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -374,6 +423,9 @@ img {
   border-radius: 50%;
   width: 44px;
   height: 44px;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-link:hover,
@@ -465,6 +517,9 @@ img {
   justify-content: center;
   align-items: center;
   display: flex;
+  transition-property: fill, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .company-item:hover,
 .company-item:focus {
@@ -507,6 +562,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 .socials-icon-footer {
   display: flex;
@@ -524,6 +580,9 @@ img {
   width: 44px;
   height: 44px;
   background-color: rgba(255, 255, 255, 10%);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -556,6 +615,9 @@ img {
   border-radius: 4px;
   min-width: 73px;
   padding: 6px;
+  transition-property: background-color,box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-title:hover,
 .button-title:focus {
@@ -634,6 +696,9 @@ img {
   box-sizing: border-box;
   margin-right: 30px;
   margin-bottom: 30px;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation-text {
@@ -653,15 +718,17 @@ img {
   line-height: 1.55;
   opacity: 0;
   transform: translateY(100%);
-  transition: transform 550ms ease, opacity 250ms ease;
+  transition: transform 250ms ease, opacity 250ms ease;
 }
 .border-primary:hover .navigation-text,
 .border-primary:focus .navigation-text {
   transform: translateY(0);
   opacity: 1;
 }
+
 .navigation-images {
   position: relative;
+  overflow: hidden;
 }
 
 .border-primary:hover,
